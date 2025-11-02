@@ -1,0 +1,89 @@
+### Read all services
+GET http://localhost:4004/odata/v4/CatalogService
+
+### Read all services
+GET http://localhost:4004/odata/v4/CatalogService/$metadata
+
+### Read
+GET http://localhost:4004/odata/v4/CatalogService/EmployeeService
+
+### Create
+POST http://localhost:4004/odata/v4/CatalogService/EmployeeService
+Content-Type: application/json
+
+
+{
+      "Currency_code": "USD",
+      "ID": "02BD2137-0890-1EEA-A6C2-BB55C197AAAA",
+      "accountNumber": "111222000",
+      "bankId": "510000115",
+      "bankName": "My Bank of Mumbai",
+      "email": "Mr.RAM@itelo.info",
+      "gender": "F",
+      "language": "E",
+      "loginName": "MRRAM",
+      "nameFirst": "Mr",
+      "nameInitials": null,
+      "nameLast": "RAM",
+      "nameMiddle": null,
+      "phoneNumber": "+1 124 374 524",
+      "salaryAmount": "45549.00"
+}
+
+### Update
+PATCH  http://localhost:4004/odata/v4/CatalogService/EmployeeService/02BD2137-0890-1EEA-A6C2-BB55C197AAAA
+Content-Type: application/json
+
+
+{
+    "salaryAmount" : "150000.00",
+    "Currency_code" : "EUR"
+}
+
+### Delete
+DELETE  http://localhost:4004/odata/v4/CatalogService/EmployeeService/02BD2137-0890-1EEA-A6C2-BB55C197AAAA
+
+### Read top 5 employees
+GET http://localhost:4004/odata/v4/CatalogService/EmployeeService?$top=5&$skip=5
+
+
+
+### Single Employee
+GET http://localhost:4004/odata/v4/CatalogService/EmployeeService/02BD2137-0890-1EEA-A6C2-BB55C197E7FB
+
+###
+GET http://localhost:4004/odata/v4/CatalogService/PurchaseOrderService?$expand=Items
+
+### Create
+POST http://localhost:4004/odata/v4/CatalogService/createEmployee
+Content-Type: application/json
+
+
+{
+      "Currency_code": "USD",
+      "ID": "02BD2137-0890-1EEA-A6C2-YB55C197DDDD",
+      "accountNumber": "111222111",
+      "bankId": "510000111",
+      "bankName": "My Bank of Delhi",
+      "email": "Mr.KALYAN@itelo.info",
+      "gender": "F",
+      "language": "E",
+      "loginName": "MRKALYAN",
+      "nameFirst": "Mr",
+      "nameInitials": null,
+      "nameLast": "KALYAN",
+      "nameMiddle": null,
+      "phoneNumber": "+1 124 374 524",
+      "salaryAmount": "115549.00"
+}
+
+
+###
+GET http://localhost:4004/odata/v4/CatalogService/PurchaseOrderService
+
+###
+GET http://localhost:4004/odata/v4/CatalogService/PurchaseOrderService/74867AD200E41EDBA5D8B0C98DC28052/smallestOrder()
+
+###
+GET http://localhost:4004/odata/v4/CatalogService/PurchaseOrderService/74867AD200E41EDBA5D8B0C98DC28052/CatalogService.largestOrder()
+
