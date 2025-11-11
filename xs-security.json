@@ -1,0 +1,68 @@
+{
+    "xsappname": "SalesOrders",
+    "tenant-mode": "dedicated",
+    "scopes": [
+        {
+            "name": "$XSAPPNAME.Viewer",
+            "description": "Viewer Role"
+        },
+        {
+            "name": "$XSAPPNAME.Admin",
+            "description": "Admin Role"
+        }
+    ],
+    "attributes": [
+        {
+            "name": "myCountry",
+            "description": "Country",
+            "valueType": "string"
+        }
+    ],
+    "role-templates": [
+        {
+            "name": "Viewer",
+            "description": "Viewer Role",
+            "scope-references": [
+                "$XSAPPNAME.Viewer"
+            ],
+            "attribute-references": [
+                {
+                    "name": "myCountry"
+                }
+            ]
+        },
+        {
+            "name": "Admin",
+            "description": "Admin Role",
+            "scope-references": [
+                "$XSAPPNAME.Admin"
+            ]
+        }
+    ],
+    "role-collections": [
+        {
+            "name": "SO_VIEWER",
+            "description": "Viewer Role",
+            "role-template-references": [
+                "$XSAPPNAME.Viewer"
+            ]
+        },
+        {
+            "name": "SO_ADMIN",
+            "description": "Admin Role",
+            "role-template-references": [
+                "$XSAPPNAME.Admin"
+            ]
+        }
+    ],
+    "authorities": [
+        "$ACCEPT_GRANTED_AUTHORITIES"
+    ],
+    "oauth2-configuration": {
+        "token-validity": 9000,
+        "redirect-uris": [
+            "https://*.cfapps.us10-001.hana.ondemand.com/login/callback"
+        ]
+    },
+    "xsenableasyncservice": "true"
+}

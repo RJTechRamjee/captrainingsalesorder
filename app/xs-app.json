@@ -1,0 +1,12 @@
+{
+    "welcomeFile" : "purchaseorder/webapp/index.html",
+    "authenticationMethod" : "route",
+    "sessionTimeout" : 100,
+    "pluginMetadataEndpoint" : "/metadata",
+    "routes" : [
+        {
+            "source" : "^/odata/v4/(.*)$",
+            "destination" : "srv-api"
+        }
+    ]
+}

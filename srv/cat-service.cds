@@ -7,7 +7,21 @@ service CatalogService @(path: 'CatalogService') {
    entity BusinessPartnerService as projection on db.master.businesspartner;
 
 
-   entity AddressService as projection on db.master.address;
+   entity AddressService 
+   @( restrict : [
+      {
+         grant : ['READ'],
+         to : 'myCountry',
+         where : 'COUNTRY = $user.att.myCountry'
+      },
+      {
+         grant : ['WRITE'],
+         to : 'Admin'
+      }
+   ]
+
+   ) 
+   as projection on db.master.address;
 
 
    entity EmployeeService as projection on db.master.emplyees;
