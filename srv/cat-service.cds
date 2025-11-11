@@ -8,19 +8,19 @@ service CatalogService @(path: 'CatalogService') {
 
 
    entity AddressService 
-   @( restrict : [
-      {
-         grant : ['READ'],
-         to : 'myCountry',
-         where : 'COUNTRY = $user.att.myCountry'
-      },
-      {
-         grant : ['WRITE'],
-         to : 'Admin'
-      }
-   ]
+   // @( restrict : [
+   //    {
+   //       grant : ['READ'],
+   //       to : 'myCountry',
+   //       where : 'COUNTRY = $user.att.myCountry'
+   //    },
+   //    {
+   //       grant : ['WRITE'],
+   //       to : 'Admin'
+   //    }
+   // ]
 
-   ) 
+   // ) 
    as projection on db.master.address;
 
 
