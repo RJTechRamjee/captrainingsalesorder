@@ -13,7 +13,7 @@ build-parameters:
 modules:
 # start of UI module
   - name: SalesOrderApplication-ui
-    type: nodejs
+    type: approuter.nodejs
     path: app
     parameters:
         buildpack: nodejs_buildpack

@@ -1,12 +1,26 @@
 {
-    "welcomeFile" : "purchaseorder/webapp/index.html",
-    "authenticationMethod" : "route",
-    "sessionTimeout" : 100,
-    "pluginMetadataEndpoint" : "/metadata",
-    "routes" : [
+    "welcomeFile": "/purchaseorder/webapp/index.html",
+    "authenticationMethod": "route",
+    "sessionTimeout": 100,
+    "routes": [
         {
-            "source" : "^/odata/v4/(.*)$",
-            "destination" : "srv-api"
+            "source": "^/odata/v4/CatalogService/(.*)$",
+            "target": "/odata/v4/CatalogService/$1",
+            "destination": "srv-api",
+            "authenticationType": "xsuaa",
+            "csrfProtection": false
+        },
+        {
+            "source": "^/purchaseorder/(.*)$",
+            "target": "$1",
+            "localDir": "purchaseorder/webapp",
+            "authenticationType": "xsuaa"
+        },
+        {
+            "source": "^(.*)$",
+            "target": "$1",
+            "localDir": ".",
+            "authenticationType": "xsuaa"
         }
     ]
 }
