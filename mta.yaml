@@ -11,12 +11,13 @@ build-parameters:
         - npm ci
         - npx cds build --production
 modules:
-# start of UI module
+# start of UI module (AppRouter)
   - name: SalesOrderApplication-ui
     type: approuter.nodejs
     path: app
     parameters:
-        buildpack: nodejs_buildpack
+      disk-quota: 256M
+      memory: 256M
     build-parameters:
       builder: npm-ci
     requires:
@@ -38,7 +39,7 @@ modules:
     build-parameters:
       builder: npm-ci
     provides:
-      - name: srv-api # required by consumers of CAP services (e.g. approuter)
+      - name: srv-api
         properties:
           srv-url: ${default-url}
     requires:

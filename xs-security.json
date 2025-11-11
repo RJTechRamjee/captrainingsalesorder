@@ -1,5 +1,5 @@
 {
-    "xsappname": "SalesOrders",
+    "xsappname": "SalesOrderApplication",
     "tenant-mode": "dedicated",
     "scopes": [
         {

@@ -1,5 +1,5 @@
 {
-    "welcomeFile": "/purchaseorder/webapp/index.html",
+    "welcomeFile": "purchaseorder/webapp/index.html",
     "authenticationMethod": "route",
     "sessionTimeout": 100,
     "routes": [
